@@ -1,0 +1,12 @@
+#current-weather {
+  border: 1px solid;
+  border-color: lightgray;
+}
+
+.navbar-brand {
+  font-size: 2.5em;
+}
+
+.card {
+  width: 110%;
+}

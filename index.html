@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="Assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+      <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="col-3 d-none- d-block sidebar bg-light p-3">
+          <h3>Search for a City:</h3>
+          <form class="form-inline">
+            <input
+              class="form-control mb-3 mr-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success mb-3" type="submit">
+              Search
+            </button>
+          </form>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">Test</a>
+            <a href="#" class="list-group-item list-group-item-action">Test</a>
+            <a href="#" class="list-group-item list-group-item-action">Test</a>
+          </div>
+        </aside>
+
+        <main class="col-9">
+          <div class="m-3 p-3" id="current-weather">
+            <div class="row col">
+              <h1 id="city-name">
+                City Name Here (<span class="date" data-day="0">date here</span
+                >)<span id="weather-icon"></span>
+              </h1>
+            </div>
+            <div class="row col">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Temperature: <span id="current-temp"></span>
+                </li>
+                <li class="list-group-item">
+                  Humidity: <span id="current-humidity"></span>
+                </li>
+                <li class="list-group-item">
+                  Wind Speed: <span id="current-wind"></span>
+                </li>
+                <li class="list-group-item">
+                  UV Index: <span id="current-uv"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row ml-3 p-3" id="forecast">
+            <h2>5-Day Forecast</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-2 m-3 card card-body" data-day="1">
+              <h5 class="card-title">
+                <span class="date">Date</span>
+              </h5>
+              <p class="card-text">
+                <span class="weather-icon"></span>
+              </p>
+              <p class="card-text">Temp: <span class="temp"></span></p>
+              <p class="card-text">Humidity: <span class="humidity"></span></p>
+            </div>
+            <div class="col-sm-2 m-3 card card-body" data-day="2">
+              <h5 class="card-title">
+                <span class="date">Date</span>
+              </h5>
+              <p class="card-text">
+                <span class="weather-icon"></span>
+              </p>
+              <p class="card-text">Temp: <span class="temp"></span></p>
+              <p class="card-text">Humidity: <span class="humidity"></span></p>
+            </div>
+            <div class="col-sm-2 m-3 card card-body" data-day="3">
+              <h5 class="card-title">
+                <span class="date">Date</span>
+              </h5>
+              <p class="card-text">
+                <span class="weather-icon"></span>
+              </p>
+              <p class="card-text">Temp: <span class="temp"></span></p>
+              <p class="card-text">Humidity: <span class="humidity"></span></p>
+            </div>
+            <div class="col-sm-2 m-3 card card-body" data-day="4">
+              <h5 class="card-title">
+                <span class="date">Date</span>
+              </h5>
+              <p class="card-text">
+                <span class="weather-icon"></span>
+              </p>
+              <p class="card-text">Temp: <span class="temp"></span></p>
+              <p class="card-text">Humidity: <span class="humidity"></span></p>
+            </div>
+            <div class="col-sm-2 m-3 card card-body" data-day="5">
+              <h5 class="card-title">
+                <span class="date">Date</span>
+              </h5>
+              <p class="card-text">
+                <span class="weather-icon"></span>
+              </p>
+              <p class="card-text">Temp: <span class="temp"></span></p>
+              <p class="card-text">Humidity: <span class="humidity"></span></p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="Assets/js/script.js"></script>
+  </body>
+</html>
