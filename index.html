@@ -16,113 +16,116 @@
       crossorigin="anonymous"
     />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="Assets/css/style.css" />
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark justify-content-center">
-      <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    <nav class="navbar navbar-dark justify-content-center">
+      <span class="navbar-brand mb-0 h1"
+        >Weather Dashboard <i class="fas fa-cloud-sun"></i>
+      </span>
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <aside class="col-3 d-none- d-block sidebar bg-light p-3">
-          <h3>Search for a City:</h3>
+        <aside class="col-3 d-block sidebar sidebar-sticky bg-light p-3">
+          <h3 id="search-text">Search for a City:</h3>
           <form class="form-inline">
             <input
               class="form-control mb-3 mr-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              id="search"
             />
-            <button class="btn btn-outline-success mb-3" type="submit">
-              Search
+            <button
+              class="btn btn-primary mb-3"
+              type="submit"
+              id="search-button"
+            >
+              <i class="fas fa-search"></i>
             </button>
           </form>
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">Test</a>
-            <a href="#" class="list-group-item list-group-item-action">Test</a>
-            <a href="#" class="list-group-item list-group-item-action">Test</a>
+          <div class="list-group cities"></div>
+          <div class="row justify-content-center">
+            <button
+              type="button"
+              class="btn btn-danger btn-lg"
+              id="clear-button"
+            >
+              Clear All
+            </button>
           </div>
         </aside>
 
-        <main class="col-9">
+        <div
+          class="col-9 justify-content-center align-self-center p-auto"
+          id="welcome"
+        >
+          Select a city to get started
+        </div>
+
+        <main class="col-9 d-none" id="weather-info">
           <div class="m-3 p-3" id="current-weather">
-            <div class="row col">
-              <h1 id="city-name">
-                City Name Here (<span class="date" data-day="0">date here</span
-                >)<span id="weather-icon"></span>
-              </h1>
+            <div class="row col heading">
+              <h1 id="city-name"></h1>
+              <span id="weather-icon"></span>
             </div>
             <div class="row col">
+              <h2 class="date" data-day="0"></h2>
+            </div>
+
+            <div class="row col">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  Temperature: <span id="current-temp"></span>
-                </li>
-                <li class="list-group-item">
-                  Humidity: <span id="current-humidity"></span>
-                </li>
-                <li class="list-group-item">
-                  Wind Speed: <span id="current-wind"></span>
-                </li>
-                <li class="list-group-item">
-                  UV Index: <span id="current-uv"></span>
-                </li>
+                <li class="list-group-item" id="current-temp"></li>
+                <li class="list-group-item" id="current-humidity"></li>
+                <li class="list-group-item" id="current-wind"></li>
+                <li class="list-group-item" id="current-uv"></li>
               </ul>
             </div>
           </div>
-          <div class="row ml-3 p-3" id="forecast">
-            <h2>5-Day Forecast</h2>
+          <div class="row ml-3 p-3">
+            <h2 id="forecast">5-Day Forecast</h2>
           </div>
 
           <div class="row">
-            <div class="col-sm-2 m-3 card card-body" data-day="1">
-              <h5 class="card-title">
-                <span class="date">Date</span>
-              </h5>
-              <p class="card-text">
+            <div class="col-sm-2 m-3 card card-body forecast-card" data-day="1">
+              <div class="justify-content-center">
+                <h3 class="card-title date"></h3>
                 <span class="weather-icon"></span>
-              </p>
-              <p class="card-text">Temp: <span class="temp"></span></p>
-              <p class="card-text">Humidity: <span class="humidity"></span></p>
+              </div>
+              <p class="card-text temp"></p>
+              <p class="card-text humidity"></p>
             </div>
-            <div class="col-sm-2 m-3 card card-body" data-day="2">
-              <h5 class="card-title">
-                <span class="date">Date</span>
-              </h5>
-              <p class="card-text">
-                <span class="weather-icon"></span>
-              </p>
-              <p class="card-text">Temp: <span class="temp"></span></p>
-              <p class="card-text">Humidity: <span class="humidity"></span></p>
+
+            <div class="col-sm-2 m-3 card card-body forecast-card" data-day="2">
+              <h3 class="card-title date"></h3>
+              <span class="weather-icon"></span>
+              <p class="card-text temp"></p>
+              <p class="card-text humidity"></p>
             </div>
-            <div class="col-sm-2 m-3 card card-body" data-day="3">
-              <h5 class="card-title">
-                <span class="date">Date</span>
-              </h5>
-              <p class="card-text">
-                <span class="weather-icon"></span>
-              </p>
-              <p class="card-text">Temp: <span class="temp"></span></p>
-              <p class="card-text">Humidity: <span class="humidity"></span></p>
+
+            <div class="col-sm-2 m-3 card card-body forecast-card" data-day="3">
+              <h3 class="card-title date"></h3>
+              <span class="weather-icon"></span>
+              <p class="card-text temp"></p>
+              <p class="card-text humidity"></p>
             </div>
-            <div class="col-sm-2 m-3 card card-body" data-day="4">
-              <h5 class="card-title">
-                <span class="date">Date</span>
-              </h5>
-              <p class="card-text">
-                <span class="weather-icon"></span>
-              </p>
-              <p class="card-text">Temp: <span class="temp"></span></p>
-              <p class="card-text">Humidity: <span class="humidity"></span></p>
+
+            <div class="col-sm-2 m-3 card card-body forecast-card" data-day="4">
+              <h3 class="card-title date"></h3>
+              <span class="weather-icon"></span>
+              <p class="card-text temp"></p>
+              <p class="card-text humidity"></p>
             </div>
-            <div class="col-sm-2 m-3 card card-body" data-day="5">
-              <h5 class="card-title">
-                <span class="date">Date</span>
-              </h5>
-              <p class="card-text">
-                <span class="weather-icon"></span>
-              </p>
-              <p class="card-text">Temp: <span class="temp"></span></p>
-              <p class="card-text">Humidity: <span class="humidity"></span></p>
+
+            <div class="col-sm-2 m-3 card card-body forecast-card" data-day="5">
+              <h3 class="card-title date"></h3>
+              <span class="weather-icon"></span>
+              <p class="card-text temp"></p>
+              <p class="card-text humidity"></p>
             </div>
           </div>
         </main>
@@ -131,6 +134,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
     <script src="Assets/js/script.js"></script>
   </body>
 </html>

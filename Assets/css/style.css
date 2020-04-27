@@ -1,12 +1,74 @@
-#current-weather {
-  border: 1px solid;
-  border-color: lightgray;
+body {
+  font-family: "Quicksand", sans-serif !important;
 }
 
 .navbar-brand {
   font-size: 2.5em;
 }
 
+.navbar {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
 .card {
   width: 110%;
+}
+
+.btn:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.low {
+  background-color: green;
+  color: white;
+}
+
+.moderate {
+  background-color: yellow;
+  color: grey;
+}
+
+.high {
+  background-color: orange;
+  color: white;
+}
+
+.extreme {
+  background-color: red;
+  color: white;
+}
+
+#current-weather {
+  border: 1px solid;
+  border-color: lightgray;
+}
+
+#weather-icon {
+  position: relative;
+  top: -25px;
+}
+
+.heading {
+  height: 60px !important;
+}
+
+h3.date {
+  font-size: 1em;
+}
+
+#clear-button {
+  position: fixed;
+  bottom: 25px;
+  left: 25;
+}
+
+.welcome h3 {
+  color: grey;
 }
