@@ -1,7 +1,6 @@
 $(document).ready(function () {
   var APIKey = "c3dc07b6ca30d039abcea5db3779f996";
 
-  var results;
   var userCity;
   var cityName;
   var date;
@@ -10,12 +9,6 @@ $(document).ready(function () {
   var imgURL;
   var allCities;
   var cityBtn;
-  var cityBtns;
-  var uvEl;
-  var uv;
-
-  var lon;
-  var lat;
 
   $("#search-button").click(function (event) {
     event.preventDefault();
@@ -42,6 +35,7 @@ $(document).ready(function () {
     // show the weather info container
     $("#weather-info").removeClass("d-none");
 
+    // remove welcome container
     $("#welcome").addClass("d-none");
   }
 
@@ -60,14 +54,10 @@ $(document).ready(function () {
 
       // display city name
       cityName = response.name;
-
       cityNameEl = $("#city-name").text(cityName);
       $(".heading").prepend(cityNameEl);
-      storeCity();
 
-      // get latitude and longitude for UV index
-      lon = response.coord.lon;
-      lat = response.coord.lat;
+      storeCity();
 
       // determine icon to display
       weather = response.weather[0].main;
@@ -93,9 +83,10 @@ $(document).ready(function () {
       $("#current-wind").html("Wind Speed: " + wind + " MPH");
 
       // display UV index
-      displayUVI();
+      displayUVI(response.coord.lat, response.coord.lon);
     });
   }
+
   function getForecast() {
     var queryURL =
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -107,21 +98,21 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      results = response.list;
+      var results = response.list;
       console.log(results);
 
       // display 5 day forecast
       var forecastCards = $(".forecast-card");
       var j = 0;
 
-      // display for 5 days dates
+      // display date for the next 5 days
       for (i = 0; i < forecastCards.length; i++) {
         date = results[j].dt_txt.slice(0, 10);
         formatDate();
-
         forecastCards[i].querySelector(".date").textContent = date;
+
         // each date is 8 indicies in results arr
-        j = j + 8;
+        j += 8;
       }
 
       j = 0;
@@ -132,7 +123,7 @@ $(document).ready(function () {
         forecastCards[i].querySelector(".temp").innerHTML =
           "Temp: " + tempF.toFixed(1) + " &deg;" + "F";
 
-        j = j + 8;
+        j += 8;
       }
 
       j = 0;
@@ -144,7 +135,7 @@ $(document).ready(function () {
         forecastCards[i].querySelector(".humidity").textContent =
           "Humidity: " + humidity + "%";
 
-        j = j + 8;
+        j += 8;
       }
 
       j = 0;
@@ -160,7 +151,7 @@ $(document).ready(function () {
         weatherIcon.attr("style", "height: 50%; width: 50%");
         weatherIcon.appendTo(iconEl);
 
-        j = j + 8;
+        j += 8;
       }
     });
   }
@@ -172,7 +163,7 @@ $(document).ready(function () {
     date = month + "/" + day + "/" + year;
   }
 
-  function displayUVI() {
+  function displayUVI(lat, lon) {
     var queryURL =
       "https://api.openweathermap.org/data/2.5/uvi?appid=" +
       APIKey +
@@ -185,10 +176,9 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      uv = response.value;
-      uvEl = $("<button>");
-      renderUVColor();
-      uvEl.text(uv);
+      var uvEl = $("<button>");
+      renderUVColor(response.value, uvEl);
+      uvEl.text(response.value);
       uvEl.attr("disabled", "disabled");
 
       $("#current-uv").text("UV Index :");
@@ -198,7 +188,7 @@ $(document).ready(function () {
     });
   }
 
-  function renderUVColor() {
+  function renderUVColor(uv, uvEl) {
     if (uv >= 0 && uv <= 2) {
       uvEl.addClass("btn btn-sm ml-2 low");
     } else if (uv > 2 && uv <= 5) {
@@ -279,11 +269,9 @@ $(document).ready(function () {
     }
   }
 
-  // function loadWeather() {}
-
   loadCities();
 
-  $(".city-select").click(function () {
+  $(document).on("click", ".city-select", function () {
     userCity = $(this).text();
     console.log(userCity);
     init();
