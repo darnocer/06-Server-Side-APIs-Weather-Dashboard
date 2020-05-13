@@ -1,14 +1,20 @@
 # 06-Server-Side-APIs-Weather-Dashboard
 
-We were instructed to create a Weather Dashboard using OpenWeatherMap APIs with the below criteria.
+## Deployed Site:
 
-## User Story
+https://darnocer.github.io/06-Server-Side-APIs-Weather-Dashboard/
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+## Description
+
+This application utilizes the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities entered by the user and dynamically updates the weather for the selected city. `localStorage` is used to store user-entered cities as persistent data.
+
+- Search for a city in the search bar to see the current weather (conditions, temperature, humidity, wind speed, and UV index) and the 5 day forecast
+- Enter multiple cities to build up a list of "favorites". Refresh the page or come back later and the cities will persist, and dynamically update with the current conditions and forecast.
+- Switch between cities by selecting from the list
+- Clear all cities from `localStorage` at any time using the "Clear All" button
+- UV Index background color updates in accordance with accepted danger levels associated with each value
+
+![dashboard](./Assets/images/dashboard.png)
 
 ## Acceptance Criteria
 
