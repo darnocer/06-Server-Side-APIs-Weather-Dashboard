@@ -2,7 +2,7 @@
 
 ## Deployed Site:
 
-https://darnocer.github.io/06-Server-Side-APIs-Weather-Dashboard/
+https://darnocer.github.io/Server-Side-APIs-Weather-Dashboard/
 
 ## Description
 
