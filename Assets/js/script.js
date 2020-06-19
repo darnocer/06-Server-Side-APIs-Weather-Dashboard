@@ -50,8 +50,6 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
-
       // display city name
       cityName = response.name;
       cityNameEl = $("#city-name").text(cityName);
@@ -99,7 +97,6 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       var results = response.list;
-      console.log(results);
 
       // display 5 day forecast
       var forecastCards = $(".forecast-card");
@@ -273,7 +270,6 @@ $(document).ready(function () {
 
   $(document).on("click", ".city-select", function () {
     userCity = $(this).text();
-    console.log(userCity);
     init();
     getCurrentWeather();
     getForecast();
