@@ -10,8 +10,8 @@ This application utilizes the [OpenWeather API](https://openweathermap.org/api) 
 
 ## Table of Contents
 
-- [Installation](#installation)
 - [Usage](#usage)
+- [Future Enhancements](#future-enhancements)
 - [Credits](#Credits)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -25,6 +25,10 @@ This application utilizes the [OpenWeather API](https://openweathermap.org/api) 
 - UV Index background color updates in accordance with accepted danger levels associated with each value
 
 ![demo](./Assets/images/demo.gif)
+
+## Future Enhancements
+
+- Ensure city can be added to list only once
 
 ## Credits
 
