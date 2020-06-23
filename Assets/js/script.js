@@ -10,6 +10,15 @@ $(document).ready(function () {
   var allCities;
   var cityBtn;
 
+  if ($(window).width() < 600) {
+    console.log("mobile");
+    $("aside").removeClass("col-3 d-block sidebar sidebar-sticky");
+    $("aside").addClass("row full-width");
+    $("#search-text").addClass("mobile-text");
+    $("#clear-button").addClass("d-none");
+    $(".cities").addClass("d-none");
+  }
+
   $("#search-button").click(function (event) {
     event.preventDefault();
 

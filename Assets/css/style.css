@@ -76,3 +76,11 @@ h3.date {
   position: absolute;
   bottom: 50px;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.mobile-text {
+  font-size: 1.3rem;
+}
